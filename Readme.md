@@ -1,0 +1,1 @@
+<h1>Discount function</h1>

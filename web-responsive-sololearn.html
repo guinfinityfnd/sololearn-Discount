@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <title>SoloLearn-web-responsive</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .container{
+        background-color: #e3e3e3;
+    }
+    .header{
+        text-align: center;
+    }
+    img{
+        width: 100%;
+        height: 200px;
+    }
+    .sections{
+        margin:0 10%;
+    }
+    .feature{
+        display: inline-block;
+        width: 32%;
+        padding: 20px;
+    }
+    #btn{
+        margin-top: 20px;
+        display: inline-block;
+        padding: 5px 40px;
+    }
+    #btn:hover{
+        color: rebeccapurple;
+        cursor: pointer;
+    }
+    .feature>p{
+        text-align: center;
+    }
+    .quote{
+        text-align: center;
+        background-color: red;
+        line-height: 30px;
+    }
+    cite::before{
+        content:' -';
+        font-weight: bold;
+        font-style: italic;
+    }
+    .footer{
+        text-align: center;
+        background-color: yellowgreen;
+        padding: 20px;
+    }
+    ul{
+        list-style-type: none;
+    }
+    li{
+        display: inline-block;
+        padding-right: 20px;
+    }
+    li:hover{
+        cursor: pointer;
+        color: #fff;
+    }
+    small{
+        /* background-color: red; */
+        line-height: 20px;
+    }
+    .submenu{
+        display: none;
+        position:absolute;
+        left: 50%;
+        transform: translate(-50%,0);
+        background-color: #549;
+        border-radius: 5px;
+        min-width: 160px;
+        text-align: center;
+    }
+    .submenu a{
+        color: #fff;
+        text-decoration:none;
+        display: block;
+        padding: 12px 16px;
+    }
+    .submenu a:hover{
+        background-color: red;
+    }
+    @media screen and (max-width:480px) {
+        #btn{
+            display: block;
+            font-size: 18px;
+            width: 80%;
+            margin: 10px auto;
+            border-radius: 5px;
+        }
+        h1{
+            font-size: 32px;            
+        }
+        h2{
+            font-size: 22px;            
+        }
+        .feature{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            margin: 0 0 10px 0;
+            text-align: left;
+        }
+        img{
+            min-width: 60px;
+            margin-right: 20px;
+        }
+        li{
+            display: block;
+            padding:5px 0;
+        }
+        .submenu{
+            width: 80%;
+            position: relative;
+        }
+        .container-one{
+            width: 100%;
+            background-color: greenyellow;
+        }
+        #op{
+            width: 100%;
+            /* margin: 0 auto; */
+        }
+        #per{
+            display: block;
+            margin: 0 auto;
+        }
+    }
+    .container-one{
+        text-align: center;
+        display: block;
+    }
+    input{
+        padding:10px;
+    }
+    #check,#clean{
+        padding:2px 20px;
+    }
+    #per{
+        max-width: 100px;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Awesome App</h1>
+            <h2>This app will change your life!</h2>
+            <button id="btn">Download Now</button>
+            <div class="submenu">
+                <a href="#">link1</a>
+                <a href="#">link2</a>
+            </div>
+        </div>
+        <section class="sections">
+            <div class="container">
+                <div class="feature">
+                    <img src="353397_circle_map_marker_pin_icon.png" alt="mieei">
+                    <p>Awesome feature</p>
+                </div>
+                <div class="feature">
+                    <img src="4288596_analytics_chart_growth_increasing_stocks_icon.png" alt="">
+                    <p>Awesome feature</p>
+                </div>
+                <div class="feature">
+                    <img src="1564513_comment_message_voice_icon.png" alt="">
+                    <p>Awesome feature</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="container-one">
+            Original Price : <input type="number" id="op">
+            Percentage : <input type="number" id="per">
+            Discount : <span id="dis"></span><br><br>
+            <button id="check">calculate</button>
+            <button id="clean">clean</button>
+        </div>
+        <br><br>
+        <section class="quote">
+            <blockquote>
+                <p>"!some great quote"</p>
+                <cite>user saitified.</cite>
+            </blockquote>
+        </section>
+        <footer class="footer">
+            <!-- <div class="container"> -->
+                <ul>
+                    <li>Home</li>
+                    <li>Contact</li>
+                    <li>Services</li>
+                </ul>
+                <small>&copy;2021,All rights reserved.</small>
+                <!-- </div> -->
+            </footer>
+        </div>
+        
+        <script>
+            const check = document.querySelector('#check');
+            const op = document.querySelector('#op');
+            const per = document.querySelector('#per');
+            const dis = document.querySelector('#dis');
+            const clean = document.querySelector('#clean');
+
+            check.addEventListener('click',perFunc);
+            function perFunc(){
+                if (op.value === '' && per.value === '') {
+                    console.log('errors');
+                    return;
+                }
+                let valOp = op.value;
+                let valPer = per.value;
+                let discount = Math.floor((valPer/100)*valOp);
+                dis.append(discount); 
+                // op.value = '';
+                // per.value = '';
+                // dis.innerHTML = "";               
+            }
+            
+            clean.addEventListener('click',()=>{
+                op.value = '';
+                per.value = '';
+                dis.innerHTML = '';
+            })
+            $(()=>{
+                $('#btn').on('click',()=>{
+                    $('.submenu').slideToggle(500);
+                });
+            });            
+        </script>
+    </body>
+    </html>

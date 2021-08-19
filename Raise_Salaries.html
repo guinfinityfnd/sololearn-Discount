@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hello world</h1>
+    <script>
+        function main() {
+    var percent = parseInt(readLine(),10);
+    
+    console.log(salaryIncrease(percent));
+}
+var salaries = [3000, 7000, 5000, 15000];
+const salaryIncrease = percent => {
+    //your code goes here
+    let sum =0;
+    salaries.forEach((s)=>{
+        sum+=s*percent/100;
+    });
+    return sum;
+}
+    </script>
+</body>
+</html>

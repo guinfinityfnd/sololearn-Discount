@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hello world</h1>
+    <script>
+        function Add(...sums){
+    let sum = 0;
+    for(let sum1 of sums){
+        sum += sum1;
+    }
+        return sum;
+
+}
+
+console.log(Add(1,2,3));
+console.log(Add(4,14,5,9,14));
+console.log(Add(2,36));
+    </script>
+</body>
+</html>
